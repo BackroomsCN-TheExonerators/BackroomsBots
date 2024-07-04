@@ -1,0 +1,5 @@
+class BasicBot{
+    public BasicBot(){
+
+    }
+}
