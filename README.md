@@ -1,5 +1,5 @@
 # Setup
-`npm install typescript && npm install dotenv && npm install mineflayer`
+`npm install typescript && npm install dotenv && npm install mineflayer && npm install mineflayer-pathfinder && npm install minecraft-data`
 
 This project is purely for learning purposes.
 

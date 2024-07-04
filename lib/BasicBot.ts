@@ -1,8 +1,12 @@
 import mineflayer = require('mineflayer');
+import {pathfinder, Movements, goals} from "mineflayer-pathfinder";
+import mcData = require('minecraft-data')
+
 
 class BasicBot{
-    private bot: any = null;
-    public BasicBot(){
+    public bot: mineflayer.Bot = null;
+    public minecraftDat = null
+    public constructor() {
         const hostUrl = process.env.HOST_URL,
             portNumber = parseInt(process.env.PORT),
             username = process.env.USERNAME,
@@ -18,5 +22,14 @@ class BasicBot{
             password: password,
             version: "1.20.4",
         })
+
+        this.bot.loadPlugin(pathfinder)
+
+        this.minecraftDat = mcData(this.bot.version)
+    }
+
+    public followPlayer(playername: string) {
+        const goal = new this.GoalFollow(this.bot.players[playername]?.entity, 1)
+
     }
 }
